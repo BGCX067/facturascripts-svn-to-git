@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_carrito.xml
+    Created on : 2 de febrero de 2009, 20:42
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_carrito.
+-->
+
+<tabla>
+   <columna>
+      <nombre>idlinea</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_carrito_idlinea_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>referencia</nombre>
+      <tipo>character varying(18)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>cantidad</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>1</defecto>
+   </columna>
+   <columna>
+      <nombre>usuario</nombre>
+      <tipo>character varying(12)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>pvpunitario</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>dtopor</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>descripcion2</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <restriccion>
+      <nombre>pkcarrito</nombre>
+      <consulta>pkcarrito PRIMARY KEY (idlinea)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_carrito_articulos</nombre>
+      <consulta>ca_fs_carrito_articulos FOREIGN KEY (referencia) REFERENCES articulos (referencia) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_carrito_usuarios</nombre>
+      <consulta>ca_fs_carrito_usuarios FOREIGN KEY (usuario) REFERENCES fs_usuarios (usuario) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

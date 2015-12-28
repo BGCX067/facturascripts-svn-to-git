@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_mensajes.xml
+    Created on : 4 de enero de 2009, 19:55
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_mensajes.
+-->
+
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_mensajes_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>usuario</nombre>
+      <tipo>character varying(12)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>fecha</nombre>
+      <tipo>timestamp without time zone</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>url</nombre>
+      <tipo>character varying(255)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>tipo</nombre>
+      <tipo>character varying(4)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>etiqueta</nombre>
+      <tipo>character varying(20)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>texto</nombre>
+      <tipo>text</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>fs_mensajes_pkey</nombre>
+      <consulta>fs_mensajes_pkey PRIMARY KEY (id)</consulta>
+   </restriccion>
+</tabla>

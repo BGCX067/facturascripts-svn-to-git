@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_boxes.xml
+    Created on : 23 de junio de 2009, 18:35
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_boxes.
+-->
+
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_boxes_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>nombre</nombre>
+      <tipo>character varying(10)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>boxes_pkey</nombre>
+      <consulta>boxes_pkey PRIMARY KEY (id)</consulta>
+   </restriccion>
+</tabla>

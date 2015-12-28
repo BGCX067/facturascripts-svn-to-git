@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : fs_opciones.xml
+    Description:
+        Estructura de la tabla fs_opciones.
+-->
+<tabla>
+   <columna>
+      <nombre>cod</nombre>
+      <tipo>character varying(10)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>valor</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <restriccion>
+      <nombre>pk_fs_opciones</nombre>
+      <consulta>pk_fs_opciones PRIMARY KEY (cod)</consulta>
+   </restriccion>
+</tabla>

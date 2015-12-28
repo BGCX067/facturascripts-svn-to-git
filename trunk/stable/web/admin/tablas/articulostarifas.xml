@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : articulostarifas.xml
+    Created on : 26 de octubre de 2008, 17:15
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla articulostarifas.
+
+        id serial NOT NULL,
+  codtarifa character varying(6) NOT NULL,
+  referencia character varying(18) NOT NULL,
+  descuento double precision NOT NULL DEFAULT 0,
+  pvp double precision NOT NULL DEFAULT 0,
+-->
+
+<tabla>
+    <columna>
+        <nombre>id</nombre>
+        <tipo>serial</tipo>
+        <nulo>NO</nulo>
+        <defecto>nextval('articulostarifas_id_seq'::regclass)</defecto>
+    </columna>
+    <columna>
+        <nombre>codtarifa</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>referencia</nombre>
+        <tipo>character varying(18)</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>descuento</nombre>
+        <tipo>double precision</tipo>
+        <nulo>NO</nulo>
+        <defecto>0</defecto>
+    </columna>
+    <columna>
+        <nombre>pvp</nombre>
+        <tipo>double precision</tipo>
+        <nulo>NO</nulo>
+        <defecto>0</defecto>
+    </columna>
+    <restriccion>
+       <nombre>articulostarifas_pkey</nombre>
+       <consulta>articulostarifas_pkey PRIMARY KEY (id)</consulta>
+    </restriccion>
+    <restriccion>
+       <nombre>ca_articulostarifas_articulos</nombre>
+       <consulta>ca_articulostarifas_articulos FOREIGN KEY (referencia) REFERENCES articulos (referencia) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+    </restriccion>
+    <restriccion>
+       <nombre>ca_articulostarifas_tarifas</nombre>
+       <consulta>ca_articulostarifas_tarifas FOREIGN KEY (codtarifa) REFERENCES tarifas (codtarifa) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+    </restriccion>
+    <restriccion>
+       <nombre>uniq_articulostarifas_tarif_ref</nombre>
+       <consulta>uniq_articulostarifas_tarif_ref UNIQUE (codtarifa, referencia)</consulta>
+    </restriccion>
+</tabla>

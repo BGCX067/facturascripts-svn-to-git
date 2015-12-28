@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : fs_usuarios.xml
+    Description:
+        Estructura de la tabla fs_usuarios.
+-->
+
+<tabla>
+   <columna>
+      <nombre>codagente</nombre>
+      <tipo>character varying(10)</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <columna>
+      <nombre>pass</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>usuario</nombre>
+      <tipo>character varying(12)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>fs_usuarios_pkey</nombre>
+      <consulta>fs_usuarios_pkey PRIMARY KEY (usuario)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_usuarios_agentes</nombre>
+      <consulta>ca_fs_usuarios_agentes FOREIGN KEY (codagente) REFERENCES agentes (codagente) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

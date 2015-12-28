@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : fs_ack.xml
+    Description:
+        Estructura de la tabla fs_ack.
+-->
+
+<tabla>
+   <columna>
+      <nombre>modulo</nombre>
+      <tipo>character varying(20)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>usuario</nombre>
+      <tipo>character varying(12)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>inicial</nombre>
+      <tipo>boolean</tipo>
+      <nulo>SI</nulo>
+      <defecto>false</defecto>
+   </columna>
+   <restriccion>
+      <nombre>pk_fs_ack</nombre>
+      <consulta>pk_fs_ack PRIMARY KEY (usuario, modulo)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_ack_modulo</nombre>
+      <consulta>ca_fs_ack_modulo FOREIGN KEY (modulo) REFERENCES fs_modulos (modulo) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_ack_usuario</nombre>
+      <consulta>ca_fs_ack_usuario FOREIGN KEY (usuario) REFERENCES fs_usuarios (usuario) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

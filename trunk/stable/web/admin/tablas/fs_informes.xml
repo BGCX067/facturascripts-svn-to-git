@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_informes.xml
+    Created on : 6 de febrero de 2009, 15:59
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_informes.
+-->
+
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_informes_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>fecha</nombre>
+      <tipo>date</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>nart</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nartu</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nstock</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>eurstock</nombre>
+      <tipo>double precision</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nalbcli</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>euralbcli</nombre>
+      <tipo>double precision</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nalbprov</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>euralbprov</nombre>
+      <tipo>double precision</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nfactcli</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>eurfactcli</nombre>
+      <tipo>double precision</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>nfactprov</nombre>
+      <tipo>bigint</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>eurfactprov</nombre>
+      <tipo>double precision</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <restriccion>
+      <nombre>fs_informes_pkey</nombre>
+      <consulta>fs_informes_pkey PRIMARY KEY (id)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>uniq_fecha_fs_informes</nombre>
+      <consulta>uniq_fecha_fs_informes UNIQUE (fecha)</consulta>
+   </restriccion>
+</tabla>

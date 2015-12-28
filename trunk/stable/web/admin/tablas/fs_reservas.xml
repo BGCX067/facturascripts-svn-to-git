@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_reservas.xml
+    Created on : 2 de febrero de 2009, 19:58
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_reservas.
+-->
+
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_reservas_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>codcliente</nombre>
+      <tipo>character varying(6)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>datos_extra</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>fecha</nombre>
+      <tipo>date</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>codagente</nombre>
+      <tipo>character varying(10)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>referencia</nombre>
+      <tipo>character varying(18)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>cantidad</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>1</defecto>
+   </columna>
+   <columna>
+      <nombre>entrega</nombre>
+      <tipo>date</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>entregado</nombre>
+      <tipo>boolean</tipo>
+      <nulo>NO</nulo>
+      <defecto>false</defecto>
+   </columna>
+   <columna>
+      <nombre>pvp</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>dtopor</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>observaciones</nombre>
+      <tipo>text</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <restriccion>
+      <nombre>pk_fs_reservas</nombre>
+      <consulta>pk_fs_reservas PRIMARY KEY (id)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_reservas_agentes</nombre>
+      <consulta>ca_fs_reservas_agentes FOREIGN KEY (codagente) REFERENCES agentes (codagente) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_reservas_articulos</nombre>
+      <consulta>ca_fs_reservas_articulos FOREIGN KEY (referencia) REFERENCES articulos (referencia) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_reservas_clientes</nombre>
+      <consulta>ca_fs_reservas_clientes FOREIGN KEY (codcliente) REFERENCES clientes (codcliente) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

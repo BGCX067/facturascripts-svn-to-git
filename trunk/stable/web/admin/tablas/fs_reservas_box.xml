@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_reservas_box.xml
+    Created on : 23 de junio de 2009, 18:35
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_reservas_box.
+-->
+
+<tabla>
+   <columna>
+      <nombre>id</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('fs_reservas_box_id_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>box</nombre>
+      <tipo>integer</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>fecha</nombre>
+      <tipo>date</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>horae</nombre>
+      <tipo>time without time zone</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>horas</nombre>
+      <tipo>time without time zone</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>matricula</nombre>
+      <tipo>character varying(15)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>minbox</nombre>
+      <tipo>integer</tipo>
+      <nulo>SI</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>observaciones</nombre>
+      <tipo>text</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>telefono</nombre>
+      <tipo>character varying(15)</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <columna>
+      <nombre>idalbaran</nombre>
+      <tipo>integer</tipo>
+      <nulo>SI</nulo>
+   </columna>
+   <restriccion>
+      <nombre>reservas_box_pkey</nombre>
+      <consulta>reservas_box_pkey PRIMARY KEY (id)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_reservas_boxes</nombre>
+      <consulta>ca_reservas_boxes FOREIGN KEY (box) REFERENCES fs_boxes (id) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_reservbox_albaran</nombre>
+      <consulta>ca_reservbox_albaran FOREIGN KEY (idalbaran) REFERENCES albaranescli (idalbaran) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

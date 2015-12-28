@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : co_asientos.xml
+    Created on : 26 de octubre de 2008, 17:18
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla co_asientos.
+-->
+
+<tabla>
+    <columna>
+        <nombre>idasiento</nombre>
+        <tipo>serial</tipo>
+        <nulo>NO</nulo>
+        <defecto>nextval('co_asientos_idasiento_seq'::regclass)</defecto>
+    </columna>
+    <columna>
+        <nombre>numero</nombre>
+        <tipo>integer</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>fecha</nombre>
+        <tipo>date</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>editable</nombre>
+        <tipo>boolean</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>codejercicio</nombre>
+        <tipo>character varying(4)</tipo>
+        <nulo>NO</nulo>
+    </columna>
+    <columna>
+        <nombre>concepto</nombre>
+        <tipo>character varying(255)</tipo>
+        <nulo>SI</nulo>
+    </columna>
+    <columna>
+        <nombre>idconcepto</nombre>
+        <tipo>character varying(4)</tipo>
+        <nulo>SI</nulo>
+    </columna>
+    <columna>
+        <nombre>documento</nombre>
+        <tipo>character varying(30)</tipo>
+        <nulo>SI</nulo>
+    </columna>
+    <columna>
+        <nombre>tipodocumento</nombre>
+        <tipo>character varying(25)</tipo>
+        <nulo>SI</nulo>
+    </columna>
+    <columna>
+        <nombre>codplanasiento</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>SI</nulo>
+    </columna>
+    <restriccion>
+       <nombre>co_asientos_pkey</nombre>
+       <consulta>co_asientos_pkey PRIMARY KEY (idasiento)</consulta>
+    </restriccion>
+    <restriccion>
+       <nombre>ca_co_asientos_ejercicios</nombre>
+       <consulta>ca_co_asientos_ejercicios FOREIGN KEY (codejercicio) REFERENCES ejercicios (codejercicio) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT</consulta>
+    </restriccion>
+</tabla>

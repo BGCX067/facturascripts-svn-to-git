@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : fs_menu.xml
+    Created on : 20 de enero de 2009, 19:57
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla fs_menu.
+-->
+
+<tabla>
+   <columna>
+      <nombre>modulo</nombre>
+      <tipo>character varying(20)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>titulo</nombre>
+      <tipo>character varying(30)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>enlace</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>fs_menu_pkey2</nombre>
+      <consulta>fs_menu_pkey2 PRIMARY KEY (modulo, enlace)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_fs_menu_fs_modulo2</nombre>
+      <consulta>ca_fs_menu_fs_modulo FOREIGN KEY (modulo) REFERENCES fs_modulos (modulo) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+</tabla>

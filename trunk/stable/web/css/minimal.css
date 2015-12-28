@@ -1,0 +1,346 @@
+/*
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+
+   Autor: Carlos Garcia Gomez
+*/
+
+@import url('tcal.css');
+
+body {
+   padding: 0;
+   margin: 0;
+   background-color: #4C769E;
+   color: white;
+   font-family: Verdana, sans-serif;
+   font-size: 14px;
+}
+
+h1, h2, h3 {
+   text-align: center;
+}
+
+a.boton, a.cancelar {
+   display: inline-block;
+   padding: 3px;
+   background-color: #55BA42;
+   border: 1px solid black;
+   color: white;
+   font-weight: bold;
+   font-size: 15px;
+   font-variant: small-caps;
+   text-decoration: none;
+   text-align: center;
+   text-transform: capitalize;
+}
+
+a.cancelar {
+   background-color: #FF5E49;
+}
+
+img {
+   border: 0;
+   vertical-align: middle;
+}
+
+input[type='submit'], input[type='button'] {
+   display: inline-block;
+   padding: 3px;
+   padding-left: 5px;
+   padding-right: 5px;
+   background-color: #4B8DF7;
+   border: 1px solid black;
+   color: white;
+   font-weight: bold;
+   font-size: 15px;
+   font-variant: small-caps;
+   text-transform: capitalize;
+}
+
+input[type='button'].eliminar {
+   background-color: #FF5E49;
+}
+
+input[disabled], input[readonly] {
+   background-color: #c1c1c1;
+}
+
+div.login {
+   position: fixed;
+   top: 35%;
+   left: 0;
+   width: 100%;
+   padding: 10px;
+   text-align: center;
+}
+
+div.login table {
+   margin-left: auto;
+   margin-right: auto;
+   padding: 10px;
+   background-color: whitesmoke;
+   color: black;
+   border: 3px double #777777;
+   box-shadow: 5px 5px 5px #555;
+}
+
+div.copyright {
+   padding: 5px;
+   text-align: center;
+}
+
+div.copyright h1 {
+   margin: 10px;
+   font-variant: small-caps;
+   font-size: 40px;
+   font-weight: bold;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+div.cabecera {
+   margin-top: 5px;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-bottom: 0px;
+   padding: 5px;
+}
+
+div.cabecera select {
+   padding: 1px;
+   font-size: 18px;
+}
+
+div.cabecera select:hover {
+   cursor: pointer;
+}
+
+div.cabecera span.empresa {
+   float: right;
+   padding-top: 7px;
+   font-weight: bold;
+   font-variant: small-caps;
+   font-size: 18px;
+   text-transform: capitalize;
+}
+
+div.mensaje, div.error {
+   margin: 5px;
+   padding: 5px;
+   text-align: center;
+   border: 1px solid #333333;
+}
+
+div.mensaje {
+   background-color: #FFF691;
+}
+
+div.error {
+   background-color: #FF9DA2;
+}
+
+div.cuerpo {
+   margin: 10px;
+   padding: 5px;
+   background-color: white;
+   color: black;
+   border-top-left-radius: 5px 5px;
+   border-top-right-radius: 5px 5px;
+   border-bottom-left-radius: 5px 5px;
+   border-bottom-right-radius: 5px 5px;
+   border: 1px solid #555555;
+}
+
+div.cuerpo div.destacado {
+   margin-bottom: 10px;
+   padding: 5px;
+   border-bottom: 1px dashed #555555;
+   text-align: center;
+}
+
+div.cuerpo div.destacado span {
+   font-size: 18px;
+   font-weight: bold;
+   font-variant: small-caps;
+}
+
+div.cuerpo div.lista {
+   display: inline-block;
+   margin-top: 5px;
+   padding: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+   background-color: #777777;
+   border-top-left-radius: 5px 5px;
+   border-top-right-radius: 5px 5px;
+   color: white;
+   font-weight: bold;
+}
+
+div.cuerpo div.lista2 {
+   padding: 5px;
+   background: #f1f1f1;
+   border: 1px solid #777777;
+}
+
+div.cuerpo table.datos {
+   width: 100%;
+   background: #f1f1f1;
+   border: 1px solid #777777;
+}
+
+div.cuerpo table.datos td.destacado {
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+div.cuerpo table.lista {
+   width: 100%;
+   background: #f1f1f1;
+   border: 1px solid #777777;
+}
+
+div.cuerpo table.lista tr:hover {
+   background-color: #D7E3ED;
+}
+
+div.cuerpo table tr.destacado td {
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+div.cuerpo table tr.destacado2 td {
+   font-weight: bold;
+   text-decoration: underline;
+}
+
+div.cuerpo table tr.gris {
+   background-color: #f1f1f1;
+}
+
+div.cuerpo table tr.bloqueado td {
+   background-color: #fdcece;
+   text-decoration: line-through;
+}
+
+div.cuerpo table tr.rojo td {
+   background-color: #fdcece;
+}
+
+div.cuerpo table tr.verde {
+   background-color: #D4FFD7;
+}
+
+div.cuerpo table tr.amarillo {
+   background-color: #FFFBAF;
+}
+
+div.cuerpo div.centrado {
+   padding: 5px;
+   text-align: center;
+}
+
+div.cuerpo ul.horizontal {
+   margin: 0px;
+   padding: 5px;
+   list-style-type: none;
+   border: 1px solid #777777;
+}
+
+div.cuerpo ul.horizontal li {
+   display: inline-block;
+   padding: 3px;
+   min-width: 250px;
+}
+
+div.cuerpo div.grupo {
+   margin: 5px;
+   padding: 5px;
+   background-color: #f0f0f0;
+   border: 1px solid #777777;
+}
+
+div.cuerpo div.grupo h1 {
+   margin: 5px;
+   font-size: 20px;
+   text-align: left;
+   border-bottom: 1px dotted #333333;
+}
+
+div.cuerpo div.bloque {
+   display: inline-block;
+   padding: 5px;
+}
+
+div.cuerpo div.paginador {
+   padding: 5px;
+   font-size: 16px;
+   word-spacing: 0.8em;
+   text-align: center;
+}
+
+div.nube {
+   padding: 5px;
+   border: 1px solid #777777;
+}
+
+.term-cloud {font-family: arial; font-size: 12px; }
+.term-cloud-1 {font-size: 12px; }
+.term-cloud-2 {font-size: 15px; }
+.term-cloud-3 {font-size: 20px; }
+.term-cloud-4 {font-size: 24px; }
+.term-cloud-5 {font-size: 28px; }
+.term-cloud-6 {font-size: 34px; }
+.term-cloud-7 {font-size: 40px; }
+.term-cloud-8 {font-size: 44px; }
+.term-cloud-9 {font-size: 50px; }
+.term-cloud-error {font-family: arial; font-size: 12px; color: red; }
+.term-cloud-link {text-decoration: none; }
+.term-cloud-link:hover {text-decoration: underline;}
+
+div.popup {
+   display: none;
+   position: fixed;
+   right: 25px;
+   top: 25px;
+   padding: 10px;
+   background-color: #f1f1f1;
+   border: 3px double #777777;
+   box-shadow: 5px 5px 5px #555;
+}
+
+div.popup h1 {
+   margin: 0px;
+   margin-bottom: 10px;
+   padding: 5px;
+   border-bottom: 1px dashed #777777;
+}
+
+ul.historial_sql {
+   margin: 10px;
+   padding: 5px;
+   list-style-type: none;
+   background-color: #FFF691;
+   color: black;
+   border: 1px solid black;
+}
+
+ul.historial_sql li {
+   padding: 5px;
+}
+
+div.pie {
+   padding: 5px;
+   text-align: center;
+}

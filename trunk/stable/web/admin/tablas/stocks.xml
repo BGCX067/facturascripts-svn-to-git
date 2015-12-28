@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : stocks.xml
+    Created on : 30 de diciembre de 2008, 18:43
+    Author     : Carlos Garcia Gomez
+    Description:
+        Estructura de la tabla stocks.
+-->
+
+<tabla>
+   <columna>
+      <nombre>idstock</nombre>
+      <tipo>serial</tipo>
+      <nulo>NO</nulo>
+      <defecto>nextval('stocks_idstock_seq'::regclass)</defecto>
+   </columna>
+   <columna>
+      <nombre>codalmacen</nombre>
+      <tipo>character varying(4)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>nombre</nombre>
+      <tipo>character varying(100)</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <columna>
+      <nombre>referencia</nombre>
+      <tipo>character varying(18)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>cantidad</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+      <defecto>0</defecto>
+   </columna>
+   <columna>
+      <nombre>disponible</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>pterecibir</nombre>
+      <tipo>double precision</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <restriccion>
+      <nombre>stocks_pkey</nombre>
+      <consulta>stocks_pkey PRIMARY KEY (idstock)</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_stocks_almacenes</nombre>
+      <consulta>ca_stocks_almacenes FOREIGN KEY (codalmacen) REFERENCES almacenes (codalmacen) MATCH SIMPLE ON UPDATE CASCADE ON DELETE RESTRICT</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>ca_stocks_articulos</nombre>
+      <consulta>ca_stocks_articulos FOREIGN KEY (referencia) REFERENCES articulos (referencia) MATCH SIMPLE ON UPDATE CASCADE ON DELETE CASCADE</consulta>
+   </restriccion>
+   <restriccion>
+      <nombre>uniq_stocks_almacen_referencia</nombre>
+      <consulta>uniq_stocks_almacen_referencia UNIQUE (codalmacen, referencia)</consulta>
+   </restriccion>
+</tabla>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : fs_modulos.xml
+    Description:
+        Estructura de la tabla fs_modulos.
+-->
+<tabla>
+   <columna>
+      <nombre>comentario</nombre>
+      <tipo>character varying(50)</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <columna>
+      <nombre>modulo</nombre>
+      <tipo>character varying(20)</tipo>
+      <nulo>NO</nulo>
+   </columna>
+   <columna>
+      <nombre>titulo</nombre>
+      <tipo>character varying(30)</tipo>
+      <nulo>YES</nulo>
+   </columna>
+   <columna>
+      <nombre>version</nombre>
+      <tipo>character varying(10)</tipo>
+      <nulo>NO</nulo>
+      <defecto>'0'::character varying</defecto>
+   </columna>
+   <restriccion>
+      <nombre>pk_fs_modulos</nombre>
+      <consulta>pk_fs_modulos PRIMARY KEY (modulo)</consulta>
+   </restriccion>
+</tabla>
